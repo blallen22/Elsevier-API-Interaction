@@ -1,0 +1,23 @@
+#install the rscopus package
+install.packages("rscopus")
+library(rscopus)
+
+#paste your Scopus Author Retrieval API key into the below quotation marks. Please note that my key will not work for you, so you should use your own
+rscopus::set_api_key("X")
+
+author.profile.retrieval.sourceID <- function(i) {
+  res = author_df(au_id = i, verbose = FALSE)
+  dfnew <- data.frame(res$au_id,res$`dc:creator`,res$`author-count.$`,res$`dc:title`,res$`prism:publicationName`,res$`citedby-count`,res$`prism:aggregationType`,res$subtypeDescription,res$`prism:coverDate`,res$`source-id`)
+  names(dfnew)<- c("Author ID", "Creator", "Author Count", "Title", "Publication Name", "Cited by Count", "Aggregation Type", "Sub-type Description", "Cover Display Date","Source ID")
+  return(dfnew)
+}
+
+author.1 <- author.profile.retrieval.sourceID("123456787")
+author.2 <- author.profile.retrieval.sourceID("123456788")
+author.3 <- author.profile.retrieval.sourceID("123456789")
+
+#combine the above authors into a single data.frame
+combined.authors <- rbind(author.1,author.2,author.3)
+
+#write the output to an Excel file
+write.csv(combined.authors,file.choose())
