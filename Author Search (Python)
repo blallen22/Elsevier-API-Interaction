@@ -1,5 +1,5 @@
 #IMPORTANT NOTES:
-    #per https://dev.elsevier.com/api_key_settings.html, results are limited to 25 per API call. max is 200 but I don't know how to increase the max
+    #per https://dev.elsevier.com/api_key_settings.html, results are limited to 25 per API call. max is 200 - to increase to max, contact Elsevier
     #weekly request quota is 5000
 
 #import the requisite packages
