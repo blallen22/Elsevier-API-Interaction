@@ -17,7 +17,7 @@ author.2 <- author.profile.retrieval.sourceID("123456788")
 author.3 <- author.profile.retrieval.sourceID("123456789")
 
 #combine the above authors into a single data.frame
-combined.authors <- rbind(author.1,author.2,author.3)
+combined.authors <- rbind(author.1, author.2, author.3)
 
 #write the output to an Excel file
 write.csv(combined.authors,file.choose())
